@@ -4,7 +4,7 @@
 
 This package contains the source code which is associated with the following paper:
 
-Yu Shi, Yu Liu, Juan Cheng, Z. Jane. Wang, Xun Chen, "VDMUFusion: A Versatile Diffusion Model-Based Unsupervised Framework for Image Fusion", submitted to IEEE Transactions on Image Processing, 2024. (under review, second round)
+Yu Shi, Yu Liu, Juan Cheng, Z. Jane. Wang, and Xun Chen, "VDMUFusion: A Versatile Diffusion Model-Based Unsupervised Framework for Image Fusion", submitted to IEEE Transactions on Image Processing, 2024. (under review, second round)
 
 Edited by Yu Shi.   
 

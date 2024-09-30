@@ -1,0 +1,56 @@
+{
+  "name": "FusionDiff",
+  "hyperParameter": {
+      "epochs": 10000,
+      "start_epoch": 0,
+      "loss_step": 2,
+      "save_model_epoch_step": 1000
+  },
+  "dataset": {
+      "train": { "path":"Dataset/Medical/Train",
+                "phase": "train",
+                "batch_size": 4,
+                "shuffle": true,
+                "drop_last": true,
+                "use_dataTransform": true,
+                "resize": false,
+                "imgSize": 256
+      },
+      "valid": { "dataset_name": "VDMUFusion",
+                "path": "Dataset/VIF_data/test/M3FD/test",
+                "phase": "valid",
+                "batch_size": 1,
+                "shuffle": false,
+                "drop_last": false,
+                "use_dataTransform": true,
+                "resize": false,
+                "imgSize": -1,
+                "generat_imgs_num": 1
+      }
+  },
+  "diffusion_model": {
+       "T": 2000,
+       "beta_schedule_type": "cosine",
+       "add_noise": false,
+       "loss_scale": 128
+  },
+  "Condition_Noise_Predictor": {
+      "use_preTrain_model": false,
+      "preTrain_Model_path": "weight/20231226_105410/epoch_36000.pt",
+      "concat_type": "ABX",
+      "UNet": { "in_channels": 4,
+                "out_channels": 1,
+                "model_channels": 64,
+                "num_res_blocks": 2,
+                "dropout": 0.1,
+                "time_embed_dim_mult":4,
+                "down_sample_mult": [1, 2, 4, 8]
+      }
+  },
+  "optimizer": {
+      "init_lr": 2e-4,
+      "use_lr_scheduler": true,
+      "StepLR_size": 1000,
+      "StepLR_gamma": 0.99
+  }
+}
